@@ -1,64 +1,198 @@
 # Distributed Job Scheduler
 
-A scalable distributed job scheduling platform built using FastAPI, PostgreSQL, Docker, and React.
+A production-inspired backend system built using FastAPI that allows organizations to schedule, manage, execute and monitor distributed background jobs through configurable queues and workers.
 
-The application allows organizations to create projects, submit jobs to distributed queues, execute jobs through worker nodes, automatically retry failed executions, and monitor system health using a web dashboard.
-
----
-
-## Technology Stack
-
-### Backend
-
-- FastAPI
-- SQLAlchemy
-- PostgreSQL
-- APScheduler
-- JWT Authentication
-
-### Frontend
-
-- React
-- TypeScript
-- Tailwind CSS
-
-### Infrastructure
-
-- Docker
-- Docker Compose
+The project demonstrates how modern task scheduling systems are designed using clean architecture, JWT authentication, PostgreSQL, SQLAlchemy and Docker.
 
 ---
 
-## Development Progress
+## Why this project?
 
-| Module | Status |
-|----------|--------|
-| Backend Foundation | ✅ Completed |
-| Database Layer | ⏳ In Progress |
-| Authentication | ⏳ Pending |
-| Organizations & Projects | ⏳ Pending |
-| Queue Management | ⏳ Pending |
-| Scheduler & Workers | ⏳ Pending |
-| Dashboard | ⏳ Pending |
-| Testing & Documentation | ⏳ Pending |
+Most production systems execute thousands of asynchronous jobs every day.
+
+Examples include:
+
+• Sending emails
+• Image processing
+• Video transcoding
+• Payment retries
+• Notification delivery
+• AI model inference
+• Data synchronization
+
+Instead of executing everything immediately, companies push these tasks into queues where background workers process them independently.
+
+This project recreates that architecture in a simplified but scalable manner.
 
 ---
 
-## Repository Structure
+## Features Implemented
 
-```text
-backend/
-frontend/
-worker/
-docs/
-docker-compose.yml
-README.md
+✔ JWT Authentication
+
+Users can register, log in securely and receive JWT access tokens used to authorize protected API requests.
+
+---
+
+✔ Organization Management
+
+Organizations act as the highest level entity inside the system.
+
+Every project belongs to an organization.
+
+---
+
+✔ Project Management
+
+Projects group related queues together.
+
+Each project represents an independent workload.
+
+---
+
+✔ Queue Management
+
+Queues define how jobs are processed.
+
+Each queue stores:
+
+• Priority
+• Retry policy
+• Concurrency limits
+• Pause/Resume state
+
+---
+
+## Technologies
+
+Python
+
+FastAPI
+
+SQLAlchemy
+
+PostgreSQL
+
+Alembic
+
+JWT Authentication
+
+Docker
+
+Pydantic
+
+Swagger UI
+
+---
+
+## Architecture
+
+Client
+
+↓
+
+FastAPI REST API
+
+↓
+
+Authentication Layer
+
+↓
+
+Business Services
+
+↓
+
+Repositories
+
+↓
+
+PostgreSQL Database
+
+↓
+
+Workers (Upcoming)
+
+---
+
+## Current Progress
+
+✔ Module 1
+
+Project Foundation
+
+✔ Module 2
+
+Database Models
+
+✔ Module 3
+
+Authentication
+
+✔ Module 4
+
+Organizations
+
+✔ Module 5
+
+Projects
+
+✔ Module 6
+
+Queues
+
+🚧 Module 7
+
+Jobs
+
+🚧 Module 8
+
+Worker Engine
+
+🚧 Module 9
+
+Scheduler
+
+🚧 Module 10
+
+Monitoring
+
+---
+
+## Future Improvements
+
+• Background Workers
+
+• Redis Queue
+
+• Celery Integration
+
+• Cron Scheduling
+
+• Retry Policies
+
+• Dashboard
+
+• Metrics
+
+• Rate Limiting
+
+• Docker Deployment
+
+• CI/CD Pipeline
+
+---
+
+## API Preview
+
+Swagger Documentation
+
+```
+http://127.0.0.1:8000/docs
 ```
 
 ---
 
-## Current Status
+## Status
 
-The backend infrastructure has been completed.
-
-The next phase focuses on implementing the database layer, authentication, scheduling engine, distributed workers, and monitoring dashboard.
+Project currently under active development.
