@@ -36,3 +36,9 @@ class Project(BaseModel):
         back_populates="project",
         cascade="all, delete",
     )
+
+    queues = relationship(
+        "Queue",
+        back_populates="project",
+        cascade="all, delete",
+    )

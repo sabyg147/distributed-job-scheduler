@@ -1,12 +1,17 @@
 from fastapi import FastAPI
 
+from app.auth.routes import router as auth_router
 from app.config.settings import settings
+from app.organization.routes import router as organization_router
 
 app = FastAPI(
     title=settings.app_name,
     version=settings.app_version,
     debug=settings.debug,
 )
+
+app.include_router(auth_router)
+app.include_router(organization_router)
 
 
 @app.get("/")
