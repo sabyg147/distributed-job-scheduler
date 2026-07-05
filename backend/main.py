@@ -2,6 +2,7 @@ from fastapi import FastAPI
 
 from app.auth.routes import router as auth_router
 from app.config.settings import settings
+from app.job.routes import router as job_router
 from app.organization.routes import router as organization_router
 from app.project.routes import router as project_router
 from app.queue.routes import router as queue_router
@@ -16,6 +17,7 @@ app.include_router(auth_router)
 app.include_router(organization_router)
 app.include_router(project_router)
 app.include_router(queue_router)
+app.include_router(job_router)
 
 
 @app.get("/")
